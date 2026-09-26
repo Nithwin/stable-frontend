@@ -1,16 +1,54 @@
 {
   "name": "stable-frontend",
   "version": "1.0.0",
-  "description": "A simple npm package for stable-frontend",
-  "main": "index.js",
+  "description": "Agent-native primitives and guardrails for robust frontend development",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
   "files": [
-    "index.js",
+    "dist",
     "README.md"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "ai",
+    "agent",
+    "frontend",
+    "stability",
+    "guardrails",
+    "validation"
+  ],
   "author": "nithwin",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nithwin/stable-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nithwin/stable-frontend/issues"
+  },
+  "homepage": "https://github.com/Nithwin/stable-frontend#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
 }
