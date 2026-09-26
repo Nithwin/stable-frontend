@@ -1,7 +1,7 @@
 {
   "name": "stable-frontend",
   "version": "1.0.0",
-  "description": "Agent-native primitives and guardrails for robust frontend development",
+  "description": "Frontend architecture and stability guidelines for AI coding agents in React and Next.js",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -34,11 +34,17 @@
   },
   "keywords": [
     "ai",
-    "agent",
+    "ai-agent",
+    "ai-coding",
     "frontend",
-    "stability",
-    "guardrails",
-    "validation"
+    "react",
+    "nextjs",
+    "typescript",
+    "cursor-rules",
+    "claude-code",
+    "best-practices",
+    "validation",
+    "testing"
   ],
   "author": "nithwin",
   "license": "MIT",
