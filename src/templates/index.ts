@@ -1,11 +1,11 @@
 import { RuleTemplate } from '../types.js';
-import { agentsRouterTemplate } from './root/agents.js';
-import { claudeRouterTemplate } from './root/claude.js';
-import { architectureRuleTemplate } from './rules/01-architecture.js';
-import { validationRuleTemplate } from './rules/02-validation.js';
-import { dataFetchingRuleTemplate } from './rules/03-data-fetching.js';
-import { testingRuleTemplate } from './rules/04-testing.js';
-import { performanceRuleTemplate } from './rules/05-performance.js';
+import { agentsRouterTemplate } from './root/agents/index.js';
+import { claudeRouterTemplate } from './root/claude/index.js';
+import { architectureRuleTemplate } from './rules/01-architecture/index.js';
+import { validationRuleTemplate } from './rules/02-validation/index.js';
+import { dataFetchingRuleTemplate } from './rules/03-data-fetching/index.js';
+import { testingRuleTemplate } from './rules/04-testing/index.js';
+import { performanceRuleTemplate } from './rules/05-performance/index.js';
 
 /**
  * The Central Template Registry
