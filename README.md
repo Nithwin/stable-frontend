@@ -29,7 +29,8 @@ Generated structure:
         ├── 02-validation.md   # Schema validation and form lifecycles
         ├── 03-data-fetching.md# Async states and component boundaries
         ├── 04-testing.md      # Testing pyramid and edge case checklists
-        └── 05-performance.md  # Accessibility and layout stability
+        ├── 05-performance.md  # Accessibility, Core Web Vitals, and SEO
+        └── 06-security.md     # Authentication, XSS defense, and data isolation
 ```
 
 ## Adding Rules
@@ -37,7 +38,7 @@ Generated structure:
 To add a new rule:
 
 1. Create a template folder under `src/templates/rules/` with a `prompt.md` and `index.ts`.
-2. Register the template in `src/templates/index.ts`.
+2. Register the template in `src/templates/rules/index.ts`.
 3. Run `npm run build`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.

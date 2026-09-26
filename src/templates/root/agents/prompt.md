@@ -16,4 +16,15 @@ To minimize token usage, detailed guidelines are organized into dedicated sub-ru
 
 ## Core Rules (Always Enforced)
 
-1. **Security & Secrets:** Never hardcode, commit, or expose secret keys, API tokens, or private credentials. Always load sensitive values through environment variables and verify that `.env*` files are listed in `.gitignore`.
+1. **Security & Secrets:** Never hardcode, commit, or expose secret keys, API tokens, or private credentials. Strictly adhere to `06-security.md` for cookie-based authentication, XSS prevention, sanitized links, and Server Action authorization.
+
+2. **Code Craftsmanship & Comments (Self-Documenting Code):**
+   * Write self-documenting code with meaningful, pronounceable names.
+   * Do NOT write "what" comments narrating obvious syntax (e.g. `// set state to false`, `// component returns JSX`).
+   * DO write "why" comments explaining non-obvious rationale, business logic constraints, or workarounds for third-party bugs.
+   * Provide concise TSDoc for exported hooks, shared UI primitives, and complex utility interfaces.
+   * Never leave commented-out dead code; delete unused code completely.
+
+3. **Dependency & Web Standards Discipline:**
+   * Favor native modern Web APIs (`Intl`, native `fetch`, `crypto.randomUUID()`, `URL`, CSS Grid/Flex) over adding third-party npm packages.
+   * Consult the user before introducing new external libraries, explaining why native solutions are insufficient.

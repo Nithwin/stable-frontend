@@ -1,7 +1,7 @@
 import { generateStableFrontend } from './generator.js';
 
 export async function runCli(): Promise<void> {
-  console.log('\n🛡️  \x1b[1m\x1b[36mstable-frontend\x1b[0m — Setting up AI Agent Stability Guidelines...\n');
+  console.log('\n\x1b[1m\x1b[36mstable-frontend\x1b[0m — Setting up AI Agent Stability Guidelines...\n');
 
   try {
     const results = await generateStableFrontend({
@@ -23,7 +23,7 @@ export async function runCli(): Promise<void> {
     console.log('\nAI agents (Cursor, Claude, Copilot, Antigravity) will now read:');
     console.log('  • \x1b[1mAGENTS.md\x1b[0m (Rule index / router)');
     console.log('  • \x1b[1mCLAUDE.md\x1b[0m (Claude Code guidelines)');
-    console.log('  • \x1b[1m.agents/rules/\x1b[0m (Modular standards for architecture, forms, async, & testing)\n');
+    console.log('  • \x1b[1m.agents/rules/\x1b[0m (Modular standards for architecture, forms, async, testing, performance, & security)\n');
   } catch (error: any) {
     console.error('\n\x1b[31m✖ Failed to configure stable-frontend:\x1b[0m', error.message || error);
     process.exit(1);

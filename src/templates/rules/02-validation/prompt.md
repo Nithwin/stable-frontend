@@ -7,6 +7,7 @@ Validation rules must be enforced regardless of the implementation mechanism (wh
 * **Server and Client Parity:** The exact same validation rules must execute on the client (for instant UI feedback) and on the server (for secure boundary enforcement).
 * **Sanitize Before Validation:** Always trim leading/trailing whitespace and normalize casing (e.g. email) before checking lengths or regex patterns.
 * **No Unhandled Types:** Explicitly check for `null`, `undefined`, and `NaN` on every incoming value.
+* **Controlled Input Stability:** Always initialize form state with empty strings (`""`) rather than `undefined` or `null` to eliminate uncontrolled-to-controlled input warnings.
 
 ---
 
@@ -31,7 +32,7 @@ Apply these specific checks when building forms containing the following common 
 * **Required:** Must reject empty strings or whitespace-only input.
 * **Sanitization:** Always apply `.trim()`.
 * **Length Bounds:** Define explicit minimum (e.g. 2 characters for names) and maximum (e.g. 50–100 characters) thresholds to prevent database overflow.
-* **Content:** Reject raw HTML or script tags to prevent stored cross-site scripting (XSS).
+* **Content & XSS Prevention:** Reject raw HTML or script tags. If rich text or markdown is explicitly permitted, sanitize through an established sanitizer (e.g. `DOMPurify`) before storage or rendering.
 
 ### Numbers, Quantities & Currency
 * **Type Safety:** Guard against `NaN` and non-numeric inputs.
@@ -43,7 +44,7 @@ Apply these specific checks when building forms containing the following common 
 * **Length:** Between 7 and 15 digits (E.164 international standard).
 
 ### URLs & External Links
-* **Protocol:** Require valid `https://` (or `http://`) protocol prefix.
+* **Protocol:** Require valid `https://` (or `http://`) protocol prefix. Strictly reject dangerous schemes (`javascript:`, `data:`, `vbscript:`).
 * **Domain:** Validate host and top-level domain format.
 
 ### Dates & Date Ranges

@@ -94,7 +94,15 @@ src/
 * **Purpose:** Provides unified type definitions that span across multiple domains.
 * **Rules:** Feature-specific types must remain inside their respective `features/[name]/types/` folder.
 
-## 3. General Architecture Guidelines
+## 3. Server-Client Boundary Standards (Next.js App Router)
+
+* **Leaf Component Rule:** Keep `'use client'` strictly at the lowest interactive leaf components in the DOM tree (e.g. `<ThemeToggle />`, `<SearchInput />`). Never mark top-level layouts or page roots with `'use client'`.
+* **JSON-Serializable Props:** All props passing across the Server-to-Client boundary must be serializable JSON values. Never pass functions, class instances, or raw `Date` objects (convert `Date` objects to ISO strings).
+* **Server Data Isolation:** Any data-access or database client module in `lib/` must include `import 'server-only'` to guarantee private credentials cannot be bundled into client builds.
+
+---
+
+## 4. General Architecture Guidelines
 
 * **Colocation:** Place tests, schemas, and subcomponents as close as possible to the code that uses them.
 * **Maximum File Length:** Target under 150 lines per file. Once a file exceeds this threshold, extract subcomponents or separate logic into hooks.

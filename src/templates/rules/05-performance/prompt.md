@@ -44,7 +44,10 @@ Applications must be built to meet Google's three Core Web Vitals thresholds:
 * **Keyboard Navigation & Focus:**
   * All interactive elements must be focusable via `Tab` and triggerable with `Enter` and `Space`.
   * Ensure visible focus indicators are never removed (`outline: none` without replacement is forbidden; use `focus-visible:ring-2`).
+* **Modal Focus Trapping:** Dialogs and modals must trap keyboard focus while active, close when the `Escape` key is pressed, and return focus to the trigger button upon dismissal.
+* **Touch Target Sizing:** Maintain a minimum interactive touch target size of 44x44px for buttons and links on touch devices (WCAG 2.2).
 * **Form & Label Associations:** Every input must be linked to a `<label htmlFor="id">` or have an explicit `aria-label`.
+* **Link Security:** External links (`target="_blank"`) must always include `rel="noopener noreferrer"`.
 * **Decorative Icons:** Add `aria-hidden="true"` to visual icons and SVGs so screen readers do not announce raw SVG paths.
 * **Color Contrast:** Maintain at least a 4.5:1 contrast ratio for normal body text and 3:1 for large text.
 
