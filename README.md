@@ -34,6 +34,13 @@ Generated structure:
 
 To add a new rule:
 
-1. Create a template file in `src/templates/rules/`.
+1. Create a template folder under `src/templates/rules/` with a `prompt.md` and `index.ts`.
 2. Register the template in `src/templates/index.ts`.
 3. Run `npm run build`.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## Community
+
+Contributions, issues, and feature proposals are welcome. Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before participating.
+
