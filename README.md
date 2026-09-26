@@ -1,5 +1,7 @@
 # stable-frontend
 
+[![npm version](https://img.shields.io/npm/v/stable-frontend.svg)](https://www.npmjs.com/package/stable-frontend)
+
 Frontend architecture and stability rules for code generation in React and Next.js projects.
 
 ## Overview
