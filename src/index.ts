@@ -1,18 +1,9 @@
 /**
  * stable-frontend
- * Agent-native primitives and guardrails for robust frontend development.
+ * Agent-native stability guidelines & architecture engine.
  */
 
-export interface VersionInfo {
-  name: string;
-  version: string;
-}
-
-export function hello(): string {
-  return "Hello from stable-frontend!";
-}
-
-export const info: VersionInfo = {
-  name: "stable-frontend",
-  version: "1.0.0",
-};
+export * from './types.js';
+export * from './generator.js';
+export { templates } from './templates/index.js';
+export { runCli } from './cli.js';
