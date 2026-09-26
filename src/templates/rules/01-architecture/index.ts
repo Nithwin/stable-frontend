@@ -3,7 +3,8 @@ import prompt from './prompt.md';
 
 export const architectureRuleTemplate: RuleTemplate = {
   id: 'rule-architecture',
+  domain: 'Project Structure & Files',
   targetPath: '.agents/rules/01-architecture.md',
-  description: 'Folder structure, colocation, and file responsibility standards',
+  description: 'Feature-based colocation, folder layout, file responsibilities',
   getContent: () => prompt,
 };

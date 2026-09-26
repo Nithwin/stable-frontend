@@ -3,7 +3,8 @@ import prompt from './prompt.md';
 
 export const performanceRuleTemplate: RuleTemplate = {
   id: 'rule-performance',
+  domain: 'Performance & A11y',
   targetPath: '.agents/rules/05-performance.md',
-  description: 'Performance, accessibility, layout stability, and SEO metadata',
+  description: 'Core Web Vitals, accessibility standards (ARIA), image & layout stability',
   getContent: () => prompt,
 };

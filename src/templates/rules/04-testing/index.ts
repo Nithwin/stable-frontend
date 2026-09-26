@@ -3,7 +3,8 @@ import prompt from './prompt.md';
 
 export const testingRuleTemplate: RuleTemplate = {
   id: 'rule-testing',
+  domain: 'Testing & Verification',
   targetPath: '.agents/rules/04-testing.md',
-  description: 'Testing pyramid, test colocation, and edge case test checklist',
+  description: 'Unit & integration tests, edge cases checklist, testing patterns',
   getContent: () => prompt,
 };

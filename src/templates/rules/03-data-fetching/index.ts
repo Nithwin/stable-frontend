@@ -3,7 +3,8 @@ import prompt from './prompt.md';
 
 export const dataFetchingRuleTemplate: RuleTemplate = {
   id: 'rule-data-fetching',
+  domain: 'Data Fetching & Async',
   targetPath: '.agents/rules/03-data-fetching.md',
-  description: 'Async lifecycle, Server vs Client components, and race condition prevention',
+  description: 'Server vs Client components, AbortController, Loading/Error/Empty states',
   getContent: () => prompt,
 };
