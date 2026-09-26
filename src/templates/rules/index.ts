@@ -3,6 +3,7 @@ import { validationRuleTemplate } from './02-validation/index.js';
 import { dataFetchingRuleTemplate } from './03-data-fetching/index.js';
 import { testingRuleTemplate } from './04-testing/index.js';
 import { performanceRuleTemplate } from './05-performance/index.js';
+import { securityRuleTemplate } from './06-security/index.js';
 
 export const subRules = [
   architectureRuleTemplate,
@@ -10,4 +11,5 @@ export const subRules = [
   dataFetchingRuleTemplate,
   testingRuleTemplate,
   performanceRuleTemplate,
+  securityRuleTemplate,
 ];

@@ -8,6 +8,8 @@ Default to fetching data directly on the server to optimize performance and sear
 * **Eliminate Waterfalls:** Execute independent requests in parallel using `Promise.all` rather than sequential `await` calls.
 * **Progressive Streaming:** Wrap slow async components in `<Suspense fallback={<Skeleton />}>` or use route-level `loading.tsx` to stream UI chunks without blocking page navigation.
 * **Explicit Caching (Next.js 15+):** `fetch` defaults to `no-store`. Explicitly define caching policies when data is cacheable: `{ cache: 'force-cache' }` or `{ next: { revalidate: 3600 } }`.
+* **Server Action Authorization & Validation:** Treat all Server Actions as public API endpoints. Always verify session authentication and user permissions inside the action before performing mutations. Validate all input arguments against a schema (e.g. Zod).
+* **Safe Prop & Data Projection:** Never pass full database record rows or sensitive fields to Client Components. Project only minimal, necessary public properties (e.g. `{ id, name }` instead of `{ ...userRecord, passwordHash, internalEmail }`).
 
 ---
 
