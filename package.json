@@ -18,8 +18,12 @@
       }
     }
   },
+  "bin": {
+    "stable-frontend": "./bin/index.js"
+  },
   "files": [
     "dist",
+    "bin",
     "README.md"
   ],
   "scripts": {
