@@ -1,19 +1,14 @@
 # Claude Code Guidelines (stable-frontend)
 
-This project strictly adheres to **stable-frontend** production stability standards.
+Always read and adhere to `AGENTS.md` for project architecture, validation, and engineering standards.
 
 ## Project Directives
-1. **Always consult `AGENTS.md`** for the rule index.
-2. Read the specific rule file under `.agents/rules/` relevant to the feature you are working on before modifying code:
-   - Architecture & Layout: `.agents/rules/01-architecture.md`
-   - Forms & Input Validation: `.agents/rules/02-validation.md`
-   - Data Fetching & Async Handling: `.agents/rules/03-data-fetching.md`
-   - Testing & Edge Cases: `.agents/rules/04-testing.md`
-   - Performance & Accessibility: `.agents/rules/05-performance.md`
+1. Read `AGENTS.md` before generating or modifying code.
+2. Consult the relevant sub-rule under `.agents/rules/` specified in the `AGENTS.md` router for your active task.
 
 ## Build & Test Commands
-- **Typecheck:** `npm run typecheck` (or `npx tsc --noEmit`)
-- **Test:** `npm test`
-- **Build:** `npm run build`
+- Typecheck: `npm run typecheck` (or `npx tsc --noEmit`)
+- Test: `npm test`
+- Build: `npm run build`
 
-Always run typecheck and test before declaring any task complete.
+Always verify typecheck and tests pass before declaring any task complete.
