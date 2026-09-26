@@ -18,8 +18,12 @@
       }
     }
   },
+  "bin": {
+    "stable-frontend": "./bin/index.js"
+  },
   "files": [
     "dist",
+    "bin",
     "README.md"
   ],
   "scripts": {
@@ -37,7 +41,7 @@
     "validation"
   ],
   "author": "nithwin",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nithwin/stable-frontend.git"
