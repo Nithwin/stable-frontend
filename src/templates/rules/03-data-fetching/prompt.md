@@ -17,18 +17,19 @@ Default to fetching data directly on the server to optimize performance and sear
 
 Use client-side fetching only when requests depend on interactive browser state, live user inputs, or polling.
 
-* **Race Condition Prevention:** When fetching in `useEffect`, bind an `AbortController` to cancel in-flight requests on dependency change or unmount:
+* **Race Condition Prevention:** When fetching in `useEffect` or dynamic search handlers, cancel in-flight requests using an `AbortController`. An older response must never overwrite newer data:
   ```typescript
   const controller = new AbortController();
   fetch(url, { signal: controller.signal });
   return () => controller.abort();
   ```
+* **Sequential Request Guard:** If requests cannot be aborted, maintain an incremental request ID or timestamp so responses arriving out of order are discarded.
 * **HTTP Status Verification:** `fetch()` does not reject on HTTP 4xx or 5xx responses. Always verify `res.ok` before parsing the response body:
   ```typescript
   if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
   const data = await res.json();
   ```
-* **Ignore Abort Errors:** Gracefully catch and ignore `AbortError` instances when unmounting to avoid setting state or triggering false error banners.
+* **Ignore Abort Errors:** Gracefully catch and ignore `AbortError` instances when unmounting or re-fetching to avoid setting state or triggering false error banners.
 
 ---
 
@@ -60,7 +61,7 @@ Every view that depends on asynchronous data must explicitly handle and display 
 Before completing any data-fetching component, verify:
 
 - [ ] `res.ok` is checked before parsing JSON.
-- [ ] Stale in-flight requests are cancelled when query parameters or search terms change.
+- [ ] Stale in-flight requests are cancelled so older out-of-order responses never overwrite newer state.
 - [ ] Skeletons match final content dimensions to eliminate visual layout shift.
 - [ ] No browser-only APIs (`window`, `localStorage`) or dynamic timestamps are rendered during SSR without safe guards.
 - [ ] Unmounted components never attempt to update state after promise resolution.

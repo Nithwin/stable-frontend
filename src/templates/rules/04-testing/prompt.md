@@ -47,6 +47,9 @@ Always prefer accessible, user-facing queries over brittle selectors:
 * Mock at the network layer (using Mock Service Worker / MSW or `vi.fn()` on top-level API clients), never on internal React hooks.
 * Reset all mocks between tests (`afterEach(() => vi.clearAllMocks())`) to prevent test pollution.
 
+### Race Condition and Out-of-Order Testing
+* For async search, auto-complete, or filtered queries, simulate reverse-order arrival: trigger Request 1 (slow resolution) then Request 2 (fast resolution). Assert that the final rendered UI strictly displays Request 2 data and is never overwritten when Request 1 resolves.
+
 ---
 
 ## 3. Test Colocation and File Conventions
@@ -71,3 +74,4 @@ When creating tests for any feature or form, verify that test suites cover:
 - [ ] **Server Failure Recovery:** API returning 500 displays an error banner and presents an actionable retry button that successfully re-triggers the action.
 - [ ] **Empty States:** When API returns an empty array `[]` or null, appropriate empty state messaging and CTAs are rendered.
 - [ ] **Boundary Values:** Input edge cases (min length - 1, max length + 1, 0 items, 1 item).
+- [ ] **Out-of-Order Race Condition:** When two sequential searches resolve in reverse order (older request resolves after newer request), verify that the UI renders the newer result and the stale response is safely discarded.
